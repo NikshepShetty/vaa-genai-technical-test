@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from app.schemas import TravelQuery, TravelAdvice
+from app.schemas import TravelQuery, TravelAdvice, HelpResponse
 from app.prompt import generate_prompt
 from openai import OpenAI
 import os
@@ -49,6 +49,23 @@ def travel_assistant(query: TravelQuery):
 @app.get("/")
 def read_root():
     return {"message": "Travel Assistant API is running"}
+
+@app.post("/help-assistant", response_model=HelpResponse)
+def help_assistant(query: TravelQuery):
+    """
+    TODO: Implement RAG-based help assistant endpoint
+    
+    This endpoint should:
+    1. Use vector store to retrieve relevant context from seed data
+    2. Generate contextual response using retrieved information
+    3. Return structured response with sources and confidence
+    """
+    # Placeholder implementation - candidates should replace this
+    return HelpResponse(
+        answer="This is a placeholder response. Implement RAG architecture to provide real answers based on travel data.",
+        sources=["hotel_001", "flight_002"],  # Should be actual source IDs from retrieval
+        confidence=0.8
+    )
 
 @app.get("/health")
 def health_check():
