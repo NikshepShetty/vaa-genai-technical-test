@@ -1,0 +1,74 @@
+[
+  {
+    "id": "baggage_001",
+    "title": "Baggage Allowance - International Flights",
+    "category": "baggage",
+    "content": "For international flights, Economy passengers are allowed one checked bag up to 23kg (50lbs) and one carry-on bag up to 8kg (17lbs). Premium Economy passengers get two checked bags up to 23kg each. Upper Class passengers receive three checked bags up to 32kg each. Carry-on dimensions must not exceed 56cm x 36cm x 23cm."
+  },
+  {
+    "id": "baggage_002", 
+    "title": "Excess Baggage Charges",
+    "category": "baggage",
+    "content": "Excess baggage charges apply when you exceed your allowance. Additional bags cost £65 per bag for domestic flights and £95 per bag for international flights. Overweight bags (23-32kg) cost £65 extra. Bags over 32kg are not accepted. Oversized bags (larger than standard dimensions) incur a £165 charge."
+  },
+  {
+    "id": "booking_001",
+    "title": "Flight Booking Changes",
+    "category": "booking",
+    "content": "Flight changes are permitted up to 24 hours before departure. Economy tickets incur a £50 change fee plus any fare difference. Premium Economy and Upper Class tickets can be changed without fees, subject to availability. Same-day changes are possible at the airport for a £75 fee. Name changes require a new booking."
+  },
+  {
+    "id": "booking_002",
+    "title": "Cancellation Policy", 
+    "category": "booking",
+    "content": "Bookings can be cancelled within 24 hours of purchase for a full refund. After 24 hours, cancellation fees apply: Economy £100, Premium Economy £50, Upper Class no fee. Refunds are processed to the original payment method within 7-10 business days. Travel insurance may cover additional cancellation reasons."
+  },
+  {
+    "id": "checkin_001",
+    "title": "Online Check-in Process",
+    "category": "check-in", 
+    "content": "Online check-in opens 24 hours before departure and closes 90 minutes before domestic flights or 3 hours before international flights. You can select seats, add services, and download boarding passes. Mobile boarding passes are accepted at all airports. If you have special requirements or are traveling with infants, airport check-in is recommended."
+  },
+  {
+    "id": "checkin_002",
+    "title": "Airport Check-in Requirements",
+    "category": "check-in",
+    "content": "Airport check-in counters open 3 hours before international flights and 2 hours before domestic flights. Check-in closes 60 minutes before domestic flights and 90 minutes before international flights. You'll need a valid passport or ID, booking confirmation, and any required visas. Special assistance can be arranged at check-in."
+  },
+  {
+    "id": "seating_001", 
+    "title": "Seat Selection Options",
+    "category": "seating",
+    "content": "Standard seats are free for all passengers. Premium seats with extra legroom cost £25-45 depending on route length. Exit row seats cost £35 and have age and fitness restrictions. Window and aisle seats in preferred locations cost £15-25. Upper Class passengers can select any available seat free of charge."
+  },
+  {
+    "id": "meals_001",
+    "title": "In-flight Meal Service",
+    "category": "meals", 
+    "content": "Complimentary meals are served on flights over 2 hours. Economy passengers receive a main meal and snack service. Premium Economy includes enhanced meals with wine. Upper Class features restaurant-style dining with multiple courses. Special dietary meals (vegetarian, halal, kosher, gluten-free) must be requested 48 hours in advance."
+  },
+  {
+    "id": "assistance_001",
+    "title": "Special Assistance Services",
+    "category": "accessibility",
+    "content": "We provide assistance for passengers with disabilities or reduced mobility. Services include wheelchair assistance, priority boarding, and help with baggage. Guide dogs and service animals travel free in the cabin. Medical equipment and mobility aids don't count toward baggage allowance. Request assistance at least 48 hours before travel."
+  },
+  {
+    "id": "loyalty_001",
+    "title": "Flying Club Membership Benefits", 
+    "category": "loyalty",
+    "content": "Flying Club members earn miles on flights and partner purchases. Silver members get priority check-in and 25% bonus miles. Gold members receive lounge access and free seat selection. Red members enjoy the highest priority for upgrades and maximum bonus miles. Miles can be redeemed for flights, upgrades, and partner rewards."
+  },
+  {
+    "id": "contact_001",
+    "title": "Customer Service Contact Information",
+    "category": "contact",
+    "content": "Customer service is available 24/7. Call +44 344 874 7747 for UK customers or +1 800 862 8621 for US customers. Live chat is available on our website and mobile app. Email support typically responds within 24 hours. Social media support is available on Twitter @VirginAtlantic and Facebook. Emergency contact numbers are provided in your booking confirmation."
+  },
+  {
+    "id": "covid_001", 
+    "title": "Health and Safety Protocols",
+    "category": "health",
+    "content": "Enhanced cleaning protocols are in place on all aircraft. HEPA filters refresh cabin air every 2-3 minutes. Mask requirements follow destination country regulations. Hand sanitizer is available throughout the airport and aircraft. Social distancing measures are implemented where possible. Health declarations may be required for certain destinations."
+  }
+]
