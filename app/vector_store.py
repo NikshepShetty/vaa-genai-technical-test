@@ -4,19 +4,19 @@ Vector Store Service for RAG Implementation
 TODO: Implement the following components for the RAG system:
 
 1. Document Processing:
-   - Load travel data from seed_data JSON files (hotels, flights, experiences)
-   - Convert structured data into searchable text chunks
-   - Generate embeddings for each travel option
+    - Load help content from seed_data/help_content.json
+    - Convert records into searchable text chunks (choose chunk size/overlap)
+    - Generate embeddings for each chunk
 
 2. Vector Store Setup:
-   - Choose and initialize vector database (ChromaDB, FAISS, etc.)
-   - Store embeddings with metadata (hotel/flight/experience details)
-   - Implement similarity search functionality
+    - Choose and initialize vector database (ChromaDB, FAISS, etc.)
+    - Store embeddings with metadata (source id, title, category)
+    - Implement similarity search functionality
 
 3. Retrieval Methods:
-   - Semantic search based on query embeddings
-   - Filtering by travel type (hotels, flights, experiences)
-   - Return top-k relevant travel options with scores
+    - Semantic search based on query embeddings
+    - Optional filtering by category
+    - Return top-k relevant chunks with scores
 
 Example structure:
 
@@ -48,18 +48,16 @@ class VectorStoreService:
     
     def __init__(self):
         # TODO: Initialize vector store (ChromaDB, FAISS, etc.)
-        raise NotImplementedError("Vector store not implemented yet")
+        self.store = None
     
-    def load_travel_data(self):
-        """Load and process travel data into vector store."""
-        # TODO: Load from app/seed_data/ files (hotels, flights, experiences)
-        # TODO: Process JSON data into searchable text chunks
-        # TODO: Generate embeddings and store with metadata
-        pass
+    def load_help_content(self):
+        """Load and process help content into vector store."""
+        # TODO: Load from app/seed_data/help_content.json
+        # TODO: Implement chunking with overlap; embed and persist with source IDs
+        return None
     
     def search(self, query: str, top_k: int = 3):
         """Search for relevant context based on user query."""
-        # TODO: Convert query to embedding
-        # TODO: Perform similarity search
-        # TODO: Return relevant documents with metadata
-        pass
+        # TODO: Convert query to embedding and perform similarity search
+        # Return list of {text: str, source_id: str, score: float}
+        return []

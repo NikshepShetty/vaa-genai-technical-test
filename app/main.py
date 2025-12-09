@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from app.schemas import TravelQuery, TravelAdvice, HelpResponse
+from app.schemas import TravelQuery, HelpResponse
 from app.prompt import generate_prompt
 from openai import OpenAI
 import os
@@ -13,35 +13,33 @@ app = FastAPI()
 # Initialize OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-@app.post("/travel-assistant", response_model=TravelAdvice)
-def travel_assistant(query: TravelQuery):
+@app.post("/help-assistant", response_model=HelpResponse)
+def help_assistant(query: TravelQuery):
+    """
+    RAG-based help assistant endpoint (stub).
+    Candidates should implement:
+    1) Retrieval of relevant chunks from help_content.json via vector store
+    2) Prompting the model with retrieved context
+    3) Returning grounded answers with sources & confidence
+    """
     try:
-        print(f"🔍 Received query: {query.query}")
-        api_key = os.getenv("OPENAI_API_KEY")
-        print(f"🔑 Using API key: {api_key[:10]}..." if api_key else "❌ No API key")
-        prompt = generate_prompt(query.query)
-        
+        print(f"🔍 Received help query: {query.query}")
+        # TODO: Replace with vector store retrieval of top-k context
+        retrieved_context = ""  # e.g., concatenated text from matched chunks
+        prompt = generate_prompt(query.query, retrieved_context)
+
         completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "system", "content": "You are a helpful travel assistant."},
-                      {"role": "user", "content": prompt}],
-            max_tokens=150
+            messages=[
+                {"role": "system", "content": "You are a helpful support assistant. Answer only using provided context."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=250
         )
         content = completion.choices[0].message.content
         print(f"📝 OpenAI Response: {content}")
-        
-        # For now, return structured mock data (TODO: parse AI response properly)
-        return TravelAdvice(
-            destination="Tokyo",
-            reason="Great culture, food, and safe for travelers.",
-            budget="Moderate to High", 
-            tips=[
-                "Visit Senso-ji Temple early morning.",
-                "Try local street food in Shibuya.", 
-                "Use JR Pass for transportation."
-            ]
-        )
-        
+        # Placeholder response. Replace sources with actual IDs from retrieval.
+        return HelpResponse(answer=content, sources=[], confidence=None)
     except Exception as e:
         print(f"Error: {e}")
         raise HTTPException(status_code=500, detail=f"OpenAI API error: {str(e)}")

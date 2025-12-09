@@ -1,4 +1,4 @@
-# VAA GenAI Technical Test — AI Travel Assistant
+# VAA GenAI Technical Test — RAG Help Assistant
 
 Welcome to the technical assessment for an AI Software Developer role at VAA.  
 This test is designed to evaluate your Python, FastAPI, RAG implementation, and prompt engineering skills using OpenAI's API and provided help content.
@@ -8,7 +8,7 @@ This test is designed to evaluate your Python, FastAPI, RAG implementation, and 
 ## 🧠 Objective
 
 Build a **RAG-based Help Assistant** that answers customer support queries using retrieved context from our help documentation.  
-You should use FastAPI, vector embeddings, a vector store, and OpenAI's GPT model to provide accurate, context-aware responses based on the provided help content.
+Use FastAPI, embeddings, a vector store, and OpenAI's GPT model to provide accurate, context-aware responses based on the provided help content.
 
 ---
 
@@ -20,7 +20,7 @@ You should use FastAPI, vector embeddings, a vector store, and OpenAI's GPT mode
 - Pydantic
 - Vector store (ChromaDB, FAISS, or similar)
 - Embedding model (OpenAI embeddings or sentence-transformers)
-- Help content data (provided)
+- Help content data (provided in `app/seed_data/help_content.json`)
 
 ---
 
@@ -44,39 +44,36 @@ You must adhere to the following conditions:
 
 ## ✅ Your Task
 
-Build a RAG-based help system with these three core components:
+Build a simple RAG ingestion and pipeline with these steps:
 
-### 1. **Process Help Content**
-- Take the provided seed data files (hotels, flights, experiences catalogues)
-- Implement chunking strategy for optimal retrieval of travel information
-- Generate embeddings for each chunk of travel data
+### 1. **Ingest Help Content**
+- Load `app/seed_data/help_content.json`
+- Implement chunking (choose chunk size and overlap)
+- Generate embeddings for each chunk
 
-### 2. **Vector Store Implementation**
+### 2. **Vector Store & Retrieval**
+- Initialize a vector store (your choice)
+- Store embeddings with source metadata
+- Implement similarity search and return top-k chunks
 
-- Set up a vector database to store embeddings
-- Implement similarity search functionality
-- Ensure efficient retrieval of relevant context
+### 3. **Help Q&A API**
+- Add an endpoint that retrieves context and answers questions
+- Ground answers in retrieved content; include cited sources
+- Implement basic guardrails and fallback when no context found
 
-### 3. **RAG-Enhanced API**
-- Update the existing endpoint to use RAG architecture
-- Retrieve relevant context from travel catalogues before generating responses
-- Combine retrieved context with user queries for accurate travel recommendations
-- Implement appropriate guardrails
-
-**Additional Requirements:**
-- Don't rely solely on AI knowledge - use the provided seed data (hotels, flights, experiences)
-- Ensure responses are grounded in the retrieved travel data
-- Handle cases where no relevant context is found in the catalogues
-- Update or add a new README file with the python run time version and a summary of what you would improve to boost code clarity, maintainability, and production readiness if you had more time.
+**Bonus (optional but encouraged):**
+- Add evaluations (e.g., accuracy, groundedness, citation correctness)
+- Add simple caching and/or re-ranking
+- Add unit tests for ingestion, retrieval, and API
 
 ### Example Request
 
 ```json
-POST /travel-assistant
+POST /help-assistant
 Content-Type: application/json
 
 {
-  "query": "Where should I go for a solo foodie trip to Asia in September?"
+  "query": "What is the excess baggage policy and fees?"
 }
 
 ```

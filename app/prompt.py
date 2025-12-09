@@ -1,21 +1,4 @@
-def generate_prompt(user_query: str) -> str:
-    # TODO: Update this function for RAG implementation
-    # - Add retrieved_context parameter
-    # - Include context in the prompt
-    # - Handle cases where no relevant context is found
-    return f"""
-You are a travel assistant.
-
-A user has asked: "{user_query}"
-
-Respond with:
-- A recommended destination
-- A reason for the recommendation
-- A rough budget category
-- 3 tips or suggestions
-"""
-
-def generate_rag_prompt(user_query: str, retrieved_context: str) -> str:
+def generate_prompt(user_query: str, retrieved_context: str) -> str:
     """
     TODO: Implement RAG-enhanced prompt generation
     
@@ -32,4 +15,17 @@ def generate_rag_prompt(user_query: str, retrieved_context: str) -> str:
     Returns:
         Formatted prompt for OpenAI API
     """
-    pass
+    context_block = retrieved_context or "No relevant context found."
+    return f"""\n
+You are a helpful customer service assistant.\n
+Use ONLY the context below to answer the user's question. If the context is insufficient, say so.\n
+\n
+Context:\n
+{context_block}\n
+\n
+Question: {user_query}\n
+\n
+Instructions:\n
+- Cite the specific source IDs you used.\n
+- If unsure or no context, respond: "I don't have enough information in the provided help content to answer that."\n
+"""
