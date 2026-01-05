@@ -1,3 +1,19 @@
+## Installation Instructions
+
+- Requires at least Python 3.11
+- Create a `.env` file in the project root and add your OpenAI key:
+  ```
+  OPENAI_API_KEY=your_key_here
+  ```
+- Install dependencies:
+  ```
+  pip install -r requirements.txt
+  ```
+- Run the API:
+  ```
+  python -m uvicorn app.main:app --reload
+  ```
+
 # VAA GenAI Technical Test — RAG Help Assistant
 
 Welcome to the technical assessment for an AI Software Developer role at VAA.  

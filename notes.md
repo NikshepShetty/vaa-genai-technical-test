@@ -1,3 +1,20 @@
+## Installation Instructions
+
+- Requires at least Python 3.11
+- Create a `.env` file in the project root and add your OpenAI key:
+  ```
+  OPENAI_API_KEY=your_key_here
+  ```
+- Install dependencies:
+  ```
+  pip install -r requirements.txt
+  ```
+- Run the API:
+  ```
+  python -m uvicorn app.main:app --reload
+  ```
+I used UV to create the virtual environment for this process.
+
 I wanted to create this notes section to document the reasoning behind my choice. Even though those are explained in the comments for the code, I could go into much more detail here and make it easier to show you the bigger picture.
 
 The first step was to look at the dataset itself (present in help_content.json). It is a help manual for virgin atlantic customers with 4 keys - ids, title, category and content. The content is very long, roughly 350 characters max, which easily fits within the LLM's context windows. There are 12 entries. This led me to decide that no complex chunking strategy is required for this case. 1 json entry should be treated as one chunk. If the content field was longer (regularly 500+ characters), we could have used a mix of recursive and sliding window chunking.
