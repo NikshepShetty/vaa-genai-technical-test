@@ -1,4 +1,7 @@
-"""evaluation script for help assistant using RAGAS."""
+"""
+Evaluation script for help assistant using RAGAS.
+Run from repo root: python3 -m app.evaluation.eval 
+"""
 
 import os
 import numpy as np
