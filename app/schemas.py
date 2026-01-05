@@ -4,8 +4,8 @@ from typing import List, Optional
 
 class TravelQuery(BaseModel):
     """Request body schema for user travel query."""
-    query: str = Field(..., example="Can you recommend a luxury hotel in Tokyo with good ratings and spa facilities?")
-
+    query: str = Field(..., min_length=1, example="Can you recommend a luxury hotel in Tokyo with good ratings and spa facilities?")
+    category: Optional[str] = None # add optional category for filtering
 
 """Simplified schemas for help-only RAG test."""
 

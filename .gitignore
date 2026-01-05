@@ -42,3 +42,6 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db 
+
+# Vector DB folders
+chroma_data/
